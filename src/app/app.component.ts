@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {GameService} from './game.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,11 @@ import {GameService} from './game.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pirates-frontend';
   gameCode: string;
+  userName: string;
+  numberOfPlayers: number;
 
-  constructor(private gameService: GameService) {
+  constructor(public gameService: GameService) {
 
   }
 
@@ -20,6 +22,14 @@ export class AppComponent {
     } else {
       this.gameService.getGameCode()
         .subscribe((data: string) => this.gameCode = data);
+    }
+  }
+
+  createGame(): void {
+    if (this.gameCode) {
+      this.gameService.createRoom(this.gameCode, this.userName, this.numberOfPlayers).subscribe(
+        res => console.log('created')
+      );
     }
 
   }

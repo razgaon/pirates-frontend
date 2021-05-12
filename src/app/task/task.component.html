@@ -1,0 +1,11 @@
+<div class="card lobby-task">
+  <div class="card-header">
+    User: {{task.player_id}}
+    <span class="float-end" *ngIf="task.finished">Task finished</span>
+    <span class="float-end" *ngIf="task.finished">Task in progress</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Task type: {{ task.task_archetype}}</h5>
+    <h6>Goal: {{ task.goal}}</h6>
+  </div>
+</div>

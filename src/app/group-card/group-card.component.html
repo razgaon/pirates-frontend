@@ -1,0 +1,13 @@
+<div class="card lobby-group">
+  <div class="card-header">
+    Game Id: {{game.game_id}}
+    <span class="float-end">{{game.players.length}} / {{ game.num_players}} players joined</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Game status: {{ game.status}}</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let player of game.players">{{player}}</li>
+    </ul>
+    <a href="#" class="btn btn-primary btn-lobby" (click)="openGameRoom()">Open Game Room</a>
+  </div>
+</div>

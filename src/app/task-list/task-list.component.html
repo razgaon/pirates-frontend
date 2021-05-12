@@ -1,0 +1,8 @@
+<ng-container>
+  <div>
+    <h4>Game score: {{ score }}</h4>
+  </div>
+  <div class="task-group">
+    <app-task *ngFor="let task of taskStatuses" [task]="task" ></app-task>
+  </div>
+</ng-container>

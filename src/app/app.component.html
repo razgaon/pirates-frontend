@@ -1,18 +1,49 @@
-<div class="row">
-  <div class="col-lg-6 d-flex flex-column justify-content-center">
-    <h1 data-aos="fade-up" [hidden]="gameCode">Ready to start your game?</h1>
-    <h1 data-aos="fade-up" [hidden]="!gameCode">Your Room Id is: {{gameCode}}</h1>
-    <div data-aos="fade-up" [hidden]="gameCode" data-aos-delay="600">
-      <div class="text-center text-lg-start" (click)="getGameRoom()">
-        <a href="#about"
-           class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-          <span>Open Room</span>
-          <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
+<div style="margin-top: 20px;" *ngIf="!this.gameService.gameId">
+  <div class="row">
+    <div class="col-lg-6 d-flex flex-column justify-content-center">
+      <h1 data-aos="fade-up" [hidden]="gameCode">Ready to start your game?</h1>
+      <ng-container *ngIf="gameCode">
+        <h1 data-aos="fade-up">Your Room Id is: {{gameCode}}</h1>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Username" [(ngModel)]="userName">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Number of players" [(ngModel)]="numberOfPlayers">
+        </div>
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center text-lg-start" (click)="createGame()">
+            <a href="#about"
+               class="btn-buy scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+               style="margin-top: 12px;">
+              <span>Create Game</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!gameCode">
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center text-lg-start" (click)="getGameRoom()">
+            <a href="#about"
+               class="btn-buy scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+               style="margin-top: 12px;">
+              <span>Open Room</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+      <img src="assets/img/hero-img.png" class="img-fluid" alt="">
     </div>
   </div>
-  <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-    <img src="assets/img/hero-img.png" class="img-fluid" alt="">
-  </div>
+
+  <app-lobby></app-lobby>
+</div>
+
+<div style="margin-top: 20px;" *ngIf="this.gameService.gameId">
+  <app-task-list></app-task-list>
 </div>
