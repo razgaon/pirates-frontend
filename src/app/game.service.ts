@@ -1,8 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = 'http://localhost:8000/';
+let BASE_URL;
+if (!environment.production){
+  BASE_URL = 'http://localhost:8000/';
+} else{
+  BASE_URL = 'https://shipgroups.herokuapp.com/';
+}
+
 
 export interface Task {
   id: number;
