@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
 
 let BASE_URL;
-if (!environment.production){
+if (!environment.production) {
   BASE_URL = 'http://localhost:8000/';
-} else{
+} else {
   BASE_URL = 'https://shipgroups.herokuapp.com/';
 }
 
@@ -65,13 +65,6 @@ export class GameService {
   }
 
   createRoom(gameCode, userName, numberOfPlayers): Observable<any> {
-    const headers = {'Access-Control-Allow-Origin': '*'};
-
-    const payload = {
-      game_id: gameCode,
-      user_id: userName,
-      number_of_players: numberOfPlayers
-    };
-    return this.http.post(`${BASE_URL}create_game`, payload, {headers});
+    return this.http.get(`${BASE_URL}create_game/?game_id=${gameCode}&user_id=${userName}&number_of_players=${numberOfPlayers}`);
   }
 }
