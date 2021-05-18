@@ -20,7 +20,7 @@ export class TaskListComponent implements OnInit {
     this.getGameScore();
     setInterval(() => {
       this.updateFunc();
-    }, 5000);
+    }, 1000);
   }
 
   updateFunc(): void {

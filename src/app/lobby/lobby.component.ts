@@ -30,7 +30,7 @@ export class LobbyComponent implements OnInit {
     this.getGames();
     setInterval(() => {
       this.getGames();
-    }, 5000);
+    }, 1000);
 
   }
 

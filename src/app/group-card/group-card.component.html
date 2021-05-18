@@ -6,7 +6,7 @@
   <div class="card-body">
     <h5 class="card-title">Game status: {{ game.status}}</h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let player of game.players" [ngStyle]="{'color': player.conn ? 'green' : 'red'}">{{player.name}}</li>
+      <li class="list-group-item" *ngFor="let player of game.players" [ngStyle]="{'color': player.conn === true ? 'green' : 'red'}">{{player.name}}</li>
     </ul>
     <div class="input-group mb-3" [hidden]="!addPlayerClicked">
       <input type="text" class="form-control" placeholder="Username" [(ngModel)]="userName">
