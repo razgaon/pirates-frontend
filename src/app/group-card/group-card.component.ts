@@ -12,13 +12,14 @@ export class GroupCardComponent implements OnInit {
   userName: string;
   addPlayerClicked = false;
   shouldShowJoinRoomButton;
+  shouldStartGameBtn;
 
   constructor(public gameService: GameService) {
   }
 
   ngOnInit(): void {
-    console.log(this.game);
     this.shouldShowJoinRoomButton = this.game.num_players === this.game.players.length;
+    this.shouldStartGameBtn = this.game.players.filter(item => item.conn === true).length === this.game.players.length;
   }
 
   viewGameRoom() {
@@ -42,6 +43,14 @@ export class GroupCardComponent implements OnInit {
     this.gameService.addPlayer(this.game.game_id, this.userName).subscribe(
       res => {
         console.log('added');
+      }
+    );
+  }
+
+  startGame(){
+    this.gameService.startGame(this.game.game_id).subscribe(
+      res => {
+        console.log('started');
       }
     );
   }

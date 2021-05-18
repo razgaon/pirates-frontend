@@ -14,5 +14,8 @@
     <a [hidden]="!shouldShowJoinRoomButton" style="cursor: pointer;" class="btn btn-primary btn-lobby" (click)="viewGameRoom()">View Room</a>
     <a style="margin-left: 12px; cursor: pointer;" class="btn btn-success btn-lobby" (click)="addPlayerToRoom()"
     [hidden]="shouldShowJoinRoomButton">Join room</a>
+    <a style="margin-left: 12px; cursor: pointer; float: right" class="btn btn-info btn-lobby" (click)="startGame()"
+       [hidden]="!shouldStartGameBtn">Start Game</a>
   </div>
 </div>
+

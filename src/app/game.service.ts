@@ -71,4 +71,8 @@ export class GameService {
   addPlayer(gameCode, userName): Observable<any> {
     return this.http.get(`${BASE_URL}add_player/?game_id=${gameCode}&user_id=${userName}`);
   }
+
+  startGame(gameCode): Observable<any> {
+    return this.http.get(`${BASE_URL}start_game/?game_id=${gameCode}`);
+  }
 }
