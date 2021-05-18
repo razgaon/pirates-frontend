@@ -67,4 +67,8 @@ export class GameService {
   createRoom(gameCode, userName, numberOfPlayers): Observable<any> {
     return this.http.get(`${BASE_URL}create_game/?game_id=${gameCode}&user_id=${userName}&number_of_players=${numberOfPlayers}`);
   }
+
+  addPlayer(gameCode, userName): Observable<any> {
+    return this.http.get(`${BASE_URL}add_player/?game_id=${gameCode}&user_id=${userName}`);
+  }
 }

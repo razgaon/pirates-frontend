@@ -8,6 +8,11 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item" *ngFor="let player of game.players">{{player}}</li>
     </ul>
-    <a href="#" class="btn btn-primary btn-lobby" (click)="openGameRoom()">Open Game Room</a>
+    <div class="input-group mb-3" [hidden]="!addPlayerClicked">
+      <input type="text" class="form-control" placeholder="Username" [(ngModel)]="userName">
+    </div>
+    <a style="cursor: pointer;" class="btn btn-primary btn-lobby" (click)="openGameRoom()">Open Game Room</a>
+    <a style="margin-left: 12px; cursor: pointer;" class="btn btn-success btn-lobby" (click)="addPlayerToRoom()"
+    [hidden]="shouldShowJoinRoomButton">Join room</a>
   </div>
 </div>

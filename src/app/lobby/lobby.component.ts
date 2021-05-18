@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from '../game.service';
+import * as _ from 'lodash';
 
 export interface Game {
   game_id: string;
@@ -29,7 +30,11 @@ export class LobbyComponent implements OnInit {
 
   getGames(): void {
     this.gameService.getLobby().subscribe(
-      res => this.games = res
+      res => {
+        if (!_.isEqual(res, this.games)){
+          this.games = res;
+        }
+      }
     )
     ;
   }
