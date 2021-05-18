@@ -19,7 +19,7 @@ export class GroupCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.shouldShowJoinRoomButton = this.game.num_players === this.game.players.length;
-    this.shouldStartGameBtn = this.game.players.filter(item => item.conn === true).length === this.game.players.length;
+    this.shouldStartGameBtn = this.game.players.filter(item => item.connected === true).length === this.game.players.length;
   }
 
   viewGameRoom() {
