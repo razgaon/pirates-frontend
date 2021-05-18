@@ -29,7 +29,9 @@ export class LobbyComponent implements OnInit {
   ngOnInit(): void {
     this.getGames();
     setInterval(() => {
-      this.getGames();
+      if (!this.gameService.gameId) {
+        this.getGames();
+      }
     }, 1000);
 
   }
