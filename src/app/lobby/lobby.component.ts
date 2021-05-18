@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 
 export interface Player {
   name: string;
-  conn: boolean;
+  connected: boolean;
 }
 
 export interface Game {
