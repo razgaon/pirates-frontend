@@ -17,6 +17,7 @@ export class GroupCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.game);
     this.shouldShowJoinRoomButton = this.game.num_players === this.game.players.length;
   }
 

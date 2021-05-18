@@ -28,7 +28,7 @@ export class AppComponent {
   createGame(): void {
     if (this.gameCode) {
       this.gameService.createRoom(this.gameCode, this.userName, this.numberOfPlayers).subscribe(
-        res => console.log('created')
+        res => this.gameCode = null
       );
     }
 
