@@ -20,7 +20,7 @@ export class GroupCardComponent implements OnInit {
     this.shouldShowJoinRoomButton = this.game.num_players === this.game.players.length;
   }
 
-  openGameRoom() {
+  viewGameRoom() {
     this.gameService.gameId = this.game.game_id;
   }
 

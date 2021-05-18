@@ -11,7 +11,7 @@
     <div class="input-group mb-3" [hidden]="!addPlayerClicked">
       <input type="text" class="form-control" placeholder="Username" [(ngModel)]="userName">
     </div>
-    <a [hidden]="!shouldShowJoinRoomButton" style="cursor: pointer;" class="btn btn-primary btn-lobby" (click)="openGameRoom()">Open Game Room</a>
+    <a [hidden]="!shouldShowJoinRoomButton" style="cursor: pointer;" class="btn btn-primary btn-lobby" (click)="viewGameRoom()">View Room</a>
     <a style="margin-left: 12px; cursor: pointer;" class="btn btn-success btn-lobby" (click)="addPlayerToRoom()"
     [hidden]="shouldShowJoinRoomButton">Join room</a>
   </div>
